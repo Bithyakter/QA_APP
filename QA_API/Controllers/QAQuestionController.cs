@@ -3,7 +3,7 @@ using QA_API.Model;
 
 namespace QA_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class QAQuestionController : ControllerBase
     {
@@ -16,23 +16,26 @@ namespace QA_API.Controllers
                     new QAQuestion
                     {
                         QuestionID = 1,
-                        Question = "What is ASP.NET Core?",
+                        QuestionTitle = "What is ASP.NET Core?",
+                        Question = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                         MakeBy = "Shammi",
-                        MakeDate = DateTime.Now,
+                        MakeDate = DateTime.UtcNow.AddHours(-2)
                     },
                     new QAQuestion
                     {
                         QuestionID = 2,
-                        Question = "How to deploy an ASP.NET Core application?",
+                        QuestionTitle = "How to deploy an ASP.NET Core application?",
+                        Question = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                         MakeBy = "Hasan",
-                        MakeDate = DateTime.Now,
+                        MakeDate = DateTime.UtcNow.AddHours(-4)
                     },
                     new QAQuestion
                     {
                         QuestionID = 3,
-                        Question = "Waht is ASP.NET Core API?",
+                        QuestionTitle = "What is ASP.NET Core API?",
+                        Question = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                         MakeBy = "Sharmin",
-                        MakeDate = DateTime.Now,
+                        MakeDate = DateTime.UtcNow.AddHours(-6)
                     }
                 };
         }
@@ -47,7 +50,6 @@ namespace QA_API.Controllers
 
             _questions.Add(question);
 
-            //return Ok(new { Status = "Success", output = question.Question });
             return Ok(question);
         }
         #endregion

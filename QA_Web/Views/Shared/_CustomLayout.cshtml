@@ -119,7 +119,7 @@
                     <div class="sidebar position-sticky top-0 pt-40px">
                         <ul class="generic-list-item generic-list-item-highlight fs-15">
                             <li class="lh-26"><a href="#"><i class="la la-home me-1 text-black"></i> Home</a></li>
-                            <li class="lh-26 active"><a href="#"><i class="la la-globe me-1 text-black"></i> Questions</a></li>                           
+                            <li class="lh-26 active"><a asp-controller="Questions" asp-action="Index"><i class="la la-globe me-1 text-black"></i> Questions</a></li>
                             <li class="lh-26"><a href="#"><i class="la la-user me-1 text-black"></i> Users</a></li>
                             <li class="lh-26"><a href="#"><i class="la la-sort me-1 text-black"></i> Categories</a></li>
                             <li class="lh-26"><a href="#"><i class="la la-tags me-1 text-black"></i> Tags</a></li>
@@ -130,50 +130,6 @@
                
                 @RenderBody()
 
-
-                <!--Related Questions-->
-                <div class="col-lg-3">
-                    <div class="sidebar pt-40px">
-                        <div class="card card-item">
-                            <div class="card-body">
-                                <h3 class="fs-17 pb-3">Related Questions</h3>
-                                <div class="divider"><span></span></div>
-                                <div class="sidebar-questions pt-3">
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="#">What is ASP.NET Core?</a></h5>
-                                            <small class="meta">
-                                                <span class="pe-1">2 mins ago</span>
-                                                <span class="pe-1">. by</span>
-                                                <a href="#" class="author">Bithy</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="#">What is ASP.NET Core?</a></h5>
-                                            <small class="meta">
-                                                <span class="pe-1">48 mins ago</span>
-                                                <span class="pe-1">. by</span>
-                                                <a href="#" class="author">Bithy</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                    <div class="media media-card media--card media--card-2">
-                                        <div class="media-body">
-                                            <h5><a href="#">What is ASP.NET Core?</a></h5>
-                                            <small class="meta">
-                                                <span class="pe-1">1 hour ago</span>
-                                                <span class="pe-1">. by</span>
-                                                <a href="#" class="author">Bithy</a>
-                                            </small>
-                                        </div>
-                                    </div><!-- end media -->
-                                </div><!-- end sidebar-questions -->
-                            </div>
-                        </div><!-- end card -->  
-                    </div><!-- end sidebar -->
-                </div><!-- end col-lg-3 -->
 
             </div><!-- end row -->
         </div><!-- end container -->
@@ -241,6 +197,10 @@
     </div>
     <!-- end back to top -->
 
+    <script src="~/js/controller/QuestionController.js"></script>
+    <script src="~/js/service/QuestionService.js"></script>
+
+   
     <!-- template js files -->
     <script src="~/Template/js/jquery-3.7.1.min.js"></script>
     <script src="~/Template/js/bootstrap.bundle.min.js"></script>

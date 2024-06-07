@@ -113,9 +113,9 @@
 <!-- ================================
          START QUESTION AREA
 ================================= -->
-@* <section class="question-area pt-80px pb-40px">
+<section class="question-area pt-80px pb-40px">
     <div class="container">
-        <div class="row"> *@
+        <div class="row">
 
             <div class="col-lg-8">
                 <div class="card card-item">
@@ -181,19 +181,6 @@
                             </div>
                         </div><!-- end input-box -->
 
-                        @* <div class="input-box">
-                            <label class="fs-14 text-black fw-medium">Image</label>
-                            <div class="form-group">
-                                <div class="file-upload-wrap file-upload-layout-2">
-                                    <input type="file" name="files[]" class="file-upload-input" multiple>
-                                    <span class="file-upload-text d-flex align-items-center justify-content-center">
-                                        <i class="la la-cloud-upload me-2 fs-24"></i>Drop files here or click to
-                                        upload.
-                                    </span>
-                                </div>
-                            </div>
-                        </div> *@<!-- end input-box -->
-
                         <div class="input-box pt-2">                            
                             <div class="btn-box">
                                 <button type="submit" class="btn theme-btn">Publish your question</button>
@@ -203,10 +190,54 @@
                 </div><!-- end card -->
             </div><!-- end col-lg-8 -->
 
+            <!--Related Questions-->
+            <div class="col-lg-3">
+                <div class="sidebar pt-40px">
+                    <div class="card card-item">
+                        <div class="card-body">
+                            <h3 class="fs-17 pb-3">Related Questions</h3>
+                            <div class="divider"><span></span></div>
+                            <div class="sidebar-questions pt-3">
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="#">What is ASP.NET Core?</a></h5>
+                                        <small class="meta">
+                                            <span class="pe-1">2 mins ago</span>
+                                            <span class="pe-1">. by</span>
+                                            <a href="#" class="author">Bithy</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="#">What is ASP.NET Core?</a></h5>
+                                        <small class="meta">
+                                            <span class="pe-1">48 mins ago</span>
+                                            <span class="pe-1">. by</span>
+                                            <a href="#" class="author">Bithy</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                                <div class="media media-card media--card media--card-2">
+                                    <div class="media-body">
+                                        <h5><a href="#">What is ASP.NET Core?</a></h5>
+                                        <small class="meta">
+                                            <span class="pe-1">1 hour ago</span>
+                                            <span class="pe-1">. by</span>
+                                            <a href="#" class="author">Bithy</a>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->
+                            </div><!-- end sidebar-questions -->
+                        </div>
+                    </div><!-- end card -->
+                </div><!-- end sidebar -->
+            </div>
+            <!-- end col-lg-3 -->
 
-       @*  </div>
+         </div>
     </div>
-</section> *@
+</section>
 <!-- ================================
          END QUESTION AREA
 ================================= -->

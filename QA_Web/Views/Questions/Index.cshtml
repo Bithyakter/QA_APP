@@ -1,9 +1,25 @@
-﻿@{
+﻿@* @model List<QA_API.Model.QAQuestion> *@
+
+@{
     ViewData["Title"] = "Question Page";
     Layout = "~/Views/Shared/_CustomLayout.cshtml";
 }
 
- <!--Questions-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        QuestionController.LstQuestions();
+    })
+</script>
+
+
+<div id="dvQuestionList">
+    
+</div>
+
+
+<!--Questions-->
 <div class="col-lg-7 px-0">
     <div class="question-main-bar border-left border-left-gray pt-40px pb-40px">
         <div class="filters pb-4 ps-3">
@@ -12,7 +28,7 @@
                 <a asp-controller="Questions" asp-action="CreateQuestion" class="btn theme-btn theme-btn-sm">Ask Question</a>
             </div>
             <div class="d-flex flex-wrap align-items-center justify-content-between">
-                <p class="pt-1 fs-15 fw-medium lh-20">21,287 questions</p>
+                <p class="pt-1 fs-15 fw-medium lh-20">@Model.Count questions</p>
                 <div class="filter-option-box w-20">
                     <select class="form-select">
                         <option value="newest" selected="selected">Newest </option>                
@@ -26,7 +42,9 @@
 
         <div class="questions-snippet border-top border-top-gray">
             
-            <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
+            @foreach (var question in Model)
+            {
+                <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
                 <div class="votes text-center votes-2">
                     <div class="vote-block">
                         <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">3</span>
@@ -42,77 +60,48 @@
                     </div>
                 </div>
 
-                <div class="media-body">
-                    <h5 class="mb-2 fw-medium"><a href="question-details.html">Question Title</a></h5>
-                    <p class="mb-2 truncate lh-20 fs-15">Question Description</p>
+                <div class="media-body" id="dvQuestionList">
+                        <h5 class="mb-2 fw-medium"><a href="#">@question.QuestionTitle</a></h5>
+                    <p class="mb-2 truncate lh-20 fs-15">@question.Question</p>
                     <div class="tags">
                         <a href="#" class="tag-link">javascript</a>
                         <a href="#" class="tag-link">bootstrap-4</a>
                         <a href="#" class="tag-link">jquery</a>
                         <a href="#" class="tag-link">select</a>
                     </div>
+
                     <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
-                        <a href="user-profile.html" class="media-img d-block">
+                        <a href="#" class="media-img d-block">
                             <img src="~/Template/images/user1.png" alt="avatar">
                         </a>
                         <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
                             <div>
-                                <h5 class="pb-1"><a href="Bithy#">Bithy</a></h5>
-                               
+                                <h5 class="pb-1"><a href="#">@question.MakeBy</a></h5>         
                             </div>
                             <small class="meta d-block text-end">
                                 <span class="text-black d-block lh-18">asked</span>
-                                <span class="d-block lh-18 fs-12">6 hours ago</span>
+                                    <span class="d-block lh-18 fs-12" id="timeAgo-@question.QuestionID"></span>
                             </small>
+
+                                <script>
+                                    (function () {
+                                        var questionTimestamp = new Date("@question.MakeDate.ToString("yyyy-MM-ddTHH:mm:ssZ")");
+                                        var currentTime = new Date();
+                                        var timeDifference = (currentTime - questionTimestamp) / (1000 * 60 * 60);
+                                        var hoursDifference = Math.floor(timeDifference);
+                                        var timeAgoElement = document.getElementById('timeAgo-@question.QuestionID');
+                                        timeAgoElement.innerText = hoursDifference + ' hours ago';
+                                    })();
+                                </script>
+
                         </div>
+
                     </div>
+
                 </div>
 
-            </div><!-- end media -->   
-            
-            <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
-                <div class="votes text-center votes-2">
-                    <div class="vote-block">
-                        <span class="vote-counts d-block text-center pr-0 lh-20 fw-medium">3</span>
-                        <span class="vote-text d-block fs-13 lh-18">votes</span>
-                    </div>
-                    <div class="answer-block answered my-2">
-                        <span class="answer-counts d-block lh-20 fw-medium">3</span>
-                        <span class="answer-text d-block fs-13 lh-18">answers</span>
-                    </div>
-                    <div class="view-block">
-                        <span class="view-counts d-block lh-20 fw-medium">12</span>
-                        <span class="view-text d-block fs-13 lh-18">views</span>
-                    </div>
-                </div>
-
-                <div class="media-body">
-                    <h5 class="mb-2 fw-medium"><a href="question-details.html">Question Title</a></h5>
-                    <p class="mb-2 truncate lh-20 fs-15">Question Description</p>
-                    <div class="tags">
-                        <a href="#" class="tag-link">javascript</a>
-                        <a href="#" class="tag-link">bootstrap-4</a>
-                        <a href="#" class="tag-link">jquery</a>
-                        <a href="#" class="tag-link">select</a>
-                    </div>
-                    <div class="media media-card user-media align-items-center px-0 border-bottom-0 pb-0">
-                        <a href="user-profile.html" class="media-img d-block">
-                            <img src="~/Template/images/user1.png" alt="avatar">
-                        </a>
-                        <div class="media-body d-flex flex-wrap align-items-center justify-content-between">
-                            <div>
-                                <h5 class="pb-1"><a href="Bithy#">Bithy</a></h5>
-
-                            </div>
-                            <small class="meta d-block text-end">
-                                <span class="text-black d-block lh-18">asked</span>
-                                <span class="d-block lh-18 fs-12">6 hours ago</span>
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- end media -->
+            </div><!-- end media -->  
+            }
 
         </div><!-- end questions-snippet -->
 
@@ -142,4 +131,48 @@
         </div>
 
     </div><!-- end question-main-bar -->
-</div><!-- end col-lg-7 -->
+</div>
+<!-- end col-lg-7 --> 
+
+<!--Related Questions-->
+<div class="col-lg-3">
+    <div class="sidebar pt-40px">
+        <div class="card card-item">
+            <div class="card-body">
+                <h3 class="fs-17 pb-3">Related Questions</h3>
+                <div class="divider"><span></span></div>
+                <div class="sidebar-questions pt-3">
+                    @foreach (var question in Model)
+                    {
+                        <div class="media media-card media--card media--card-2">
+                            <div class="media-body">
+                                <h5><a href="#">@question.QuestionTitle</a></h5>
+                                <small class="meta">
+                                    <span class="pe-1" id="timeAgo-@question.QuestionID"></span>
+                                    <span class="pe-1">. by</span>
+                                    <a href="#" class="author">@question.MakeBy</a>
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- end media -->
+
+                        <script>
+                            (function () {
+                                var questionTimestamp = new Date("@question.MakeDate.ToString("yyyy-MM-ddTHH:mm:ssZ")");
+                                var currentTime = new Date();
+                                var timeDifference = (currentTime - questionTimestamp) / (1000 * 60 * 60); // Difference in hours
+                                var hoursDifference = Math.floor(timeDifference);
+                                var timeAgoElement = document.getElementById('timeAgo-@question.QuestionID');
+                                timeAgoElement.innerText = hoursDifference + ' hours ago';
+                            })();
+                        </script>
+                       
+                    }
+                    
+                </div><!-- end sidebar-questions -->
+            </div>
+        </div><!-- end card -->
+    </div><!-- end sidebar -->
+</div>
+<!-- end col-lg-3 -->

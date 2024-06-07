@@ -3,7 +3,7 @@ using QA_API.Model;
 
 namespace QA_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api")]
     [ApiController]
     public class QAAnswerController : ControllerBase
     {
