@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_API", "QA_API\QA_API.csproj", "{A663FDBA-F707-4B95-BB6E-BACDDB92DBFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QA_Web", "QA_Web\QA_Web.csproj", "{10E95AE4-3CFE-447B-A450-2BC05701FBE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A663FDBA-F707-4B95-BB6E-BACDDB92DBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A663FDBA-F707-4B95-BB6E-BACDDB92DBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A663FDBA-F707-4B95-BB6E-BACDDB92DBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A663FDBA-F707-4B95-BB6E-BACDDB92DBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10E95AE4-3CFE-447B-A450-2BC05701FBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E95AE4-3CFE-447B-A450-2BC05701FBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E95AE4-3CFE-447B-A450-2BC05701FBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E95AE4-3CFE-447B-A450-2BC05701FBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {905F6BF9-751A-451C-898E-5AA51E41D2F6}
+	EndGlobalSection
+EndGlobal
