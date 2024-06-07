@@ -6,15 +6,13 @@ var QuestionController = {
             let questionContent = '';
             $.each(response, function (index, value) {
                 console.log(response);
-                // Parse makeDate string to Date object
+
                 let makeDate = new Date(value.makeDate);
-                // Calculate time difference in milliseconds
                 let timeDifference = new Date() - makeDate;
-                // Convert milliseconds to hours
                 let hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
-                // Construct HTML content for question
+
                 questionContent += `                                            
-                    <div class="media-body">
+                    
                         <h5 class="mb-2 fw-medium"><a href="question-details.html">${value.questionTitle}</a></h5>
                         <p class="mb-2 truncate lh-20 fs-15">${value.question}</p>
                         <div class="tags">
@@ -39,7 +37,7 @@ var QuestionController = {
                                 </small>
                             </div>
                         </div>
-                    </div>`;
+                    `;
             })
             $('#dvQuestionList').html(questionContent);
         })
