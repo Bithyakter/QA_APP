@@ -1,0 +1,162 @@
+﻿@{
+    ViewData["Title"] = "Answer Page";
+    Layout = "~/Views/Shared/_QuestionLayout.cshtml";
+}
+
+<!-- ================================
+         START QUESTION AREA
+================================= -->
+@* <section class="question-area pt-40px pb-40px">
+    <div class="container">
+        <div class="row"> *@
+            <div class="col-lg-9">
+                <div class="question-main-bar mb-50px">
+                    <div class="question-highlight">
+                        <div class="media media-card shadow-none rounded-0 mb-0 bg-transparent p-0">
+                            <div class="media-body">
+                                <h5 class="fs-20"><a href="question-details.html">Question Title</a></h5>
+                                <div class="meta d-flex flex-wrap align-items-center fs-13 lh-20 py-1">
+                                    <div class="pe-3">
+                                        <span>Asked</span>
+                                        <span class="text-black">1 hour ago</span>
+                                    </div>
+                                    <div class="pe-3">
+                                        <span class="pe-1">Active</span>
+                                        <a href="#" class="text-black">19 days ago</a>
+                                    </div>
+                                    <div class="pe-3">
+                                        <span class="pe-1">Viewed</span>
+                                        <span class="text-black">89 times</span>
+                                    </div>
+                                </div>
+                                @* <div class="tags">
+                                    <a href="#" class="tag-link">javascript</a>
+                                    <a href="#" class="tag-link">jquery</a>
+                                    <a href="#" class="tag-link">attribute</a>
+                                </div> *@
+                            </div>
+                        </div><!-- end media -->
+                    </div><!-- end question-highlight -->
+
+                    
+                    <div class="question d-flex">
+                        <div class="votes votes-styled w-auto">
+                            <div id="vote" class="upvotejs">
+                                <a class="upvote upvote-on" data-bs-toggle="tooltip" data-placement="right" title="This question is useful"></a>
+                                <span class="count">1</span>
+                                <a class="downvote" data-bs-toggle="tooltip" data-placement="right" title="This question is not useful"></a>
+                            </div>
+                        </div><!-- end votes -->
+
+                        <div class="question-post-body-wrap flex-grow-1">
+                            <div class="question-post-body">
+                                <p>I'm not able to get the data attribute from a button element.</p>
+                                <pre class="code-block custom-scrollbar-styled">
+                                    <code>&lt;button
+                                        <span class="code-attr">class</span>=<span class="code-string">"btn btn-solid navigate"</span>
+                                        <span class="code-attr">value</span>=<span class="code-string">"2"</span>
+                                        <span class="code-attr">data-productId</span>={{$product-&gt;id}}
+                                        <span class="code-attr">id</span>=<span class="code-string">"size-click"</span>
+                                         &gt;
+                                         Next
+                                        &lt;/button&gt;
+                                    </code>
+                                </pre>
+                                
+                            </div><!-- end question-post-body -->
+
+                            
+
+                        </div><!-- end question-post-body-wrap -->
+                    </div><!-- end question -->
+
+                    <div class="subheader d-flex align-items-center justify-content-between">
+                        <div class="subheader-title">
+                            <h3 class="fs-16">1 Answer</h3>
+                        </div><!-- end subheader-title -->
+                            <div class="subheader-actions d-flex align-items-center lh-1">
+                                <label class="fs-13 fw-regular me-1 mb-0">Order by</label>
+                                <div class="w-100px">
+                                    <select class="select-container">
+                                        <option value="active">active</option>
+                                        <option value="oldest">oldest</option>
+                                        <option value="votes" selected="selected">votes</option>
+                                    </select>
+                                </div>
+                            </div><!-- end subheader-actions -->
+                    </div><!-- end subheader -->
+
+                    <div class="answer-wrap d-flex">
+                        <div class="votes votes-styled w-auto">
+                            <div id="vote2" class="upvotejs">
+                                <a class="upvote upvote-on" data-bs-toggle="tooltip" data-placement="right" title="This question is useful"></a>
+                                <span class="count">2</span>
+                                <a class="downvote" data-bs-toggle="tooltip" data-placement="right" title="This question is not useful"></a>
+                                <a class="star check star-on" data-bs-toggle="tooltip" data-placement="right" title="The question owner accepted this answer"></a>
+                            </div>
+                        </div><!-- end votes -->
+                        
+                        <!--Answer Body-->
+                        <div class="answer-body-wrap flex-grow-1">
+                            <div class="answer-body">
+                                <p>Since you're using an <code class="code">arrow-function</code>, <code class="code">this</code> does not refer to the <code class="code">button</code>:</p>
+                                
+                                <pre class="code-block custom-scrollbar-styled">
+<code>$(<span class="code-string">"#size-click"</span>).click(<span class="code-function"><span class="code-keyword">function</span>() </span>{
+                                <span class="code-keyword">var</span> prodId = $(<span class="code-built-in">this</span>).attr(<span class="code-string">"data-productId"</span>);
+                                <span class="code-built-in">console</span>.log(<span class="code-string">'this is prodId'</span>);
+                                <span class="code-built-in">console</span>.log(prodId);
+});</code></pre>
+                               
+                                
+                            </div><!-- end answer-body -->
+
+                            <div class="question-post-user-action">                              
+                                <div class="media media-card user-media align-items-center">
+                                    <a href="#" class="media-img d-block">
+                                        <img src="~/Template/images/user1.png" alt="avatar">
+                                    </a>
+                                    <div class="media-body d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="pb-1"><a href="#">Bithy</a></h5>                                            
+                                        </div>
+                                        <small class="meta d-block text-end">
+                                            <span class="text-black d-block lh-18">answered</span>
+                                            <span class="d-block lh-18 fs-12">8 hours ago</span>
+                                        </small>
+                                    </div>
+                                </div><!-- end media -->  
+
+                            </div><!-- end question-post-user-action -->
+                        </div><!-- end answer-body-wrap -->
+                    </div><!-- end answer-wrap -->
+
+                    <div class="subheader">
+                        <div class="subheader-title">
+                            <h3 class="fs-16">Your Answer</h3>
+                        </div><!-- end subheader-title -->
+                    </div><!-- end subheader -->
+
+
+                    <div class="post-form">
+                        <form method="post" class="pt-3">
+                            <div class="input-box">
+                                <label class="fs-14 text-black lh-20 fw-medium">Body</label>
+                                <div class="form-group">
+                                    <textarea class="form-control form--control form-control-sm fs-13 user-text-editor" name="message" rows="6" placeholder="Your answer here...">Your answer here...</textarea>
+                                </div>
+                            </div>                           
+                            <button class="btn theme-btn theme-btn-sm" type="submit">Post Your Answer</button>
+                        </form>
+                    </div>
+                </div><!-- end question-main-bar -->
+            </div><!-- end col-lg-9 -->
+
+           
+       @*  </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end question-area --> *@
+<!-- ================================
+         END QUESTION AREA
+================================= -->
+
